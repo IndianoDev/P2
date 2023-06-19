@@ -4,7 +4,7 @@ import { Container, Nav, Navbar } from 'react-bootstrap'
 const Cabecalho = () => {
   return (
     <>
-      <Navbar bg="primary" variant="dark">
+      <Navbar bg="dark" variant="dark">
         <Container>
           <Navbar.Brand href="/academico">Acadêmico</Navbar.Brand>
           <Nav className="me-auto">
