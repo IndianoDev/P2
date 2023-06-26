@@ -1,12 +1,15 @@
 import React from 'react'
-import { Container, Nav, Navbar } from 'react-bootstrap'
+import { Container, Image, Nav, Navbar } from 'react-bootstrap'
 
 const Cabecalho = () => {
   return (
     <>
-      <Navbar bg="dark" variant="dark">
+      <Navbar bg="danger" variant="dark">
         <Container>
-          <Navbar.Brand href="/academico">Acadêmico</Navbar.Brand>
+          
+        <Image src='https://infoenem.com.br/wp-content/uploads/2016/12/iesb.jpg' style={{ height: '40px', width: 'auto', marginTop: '10px', marginBottom: '10px', }} ></Image>
+
+          <Navbar.Brand href="/cursos"></Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link href="/cursos">Cursos</Nav.Link>
             <Nav.Link href="/disciplinas">Disciplinas</Nav.Link>

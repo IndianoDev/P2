@@ -1,0 +1,21 @@
+.card {
+    width: 250px;
+    margin: 0 auto;
+    margin-top: 50px;
+    box-shadow: 0px 4px 50px rgb(0, 0, 0);
+  }
+  
+  .cardTitle {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .formGroup {
+    margin-bottom: 20px;
+  }
+  
+  .p {
+    color: rgb(255, 255, 255);
+    margin-bottom: 20px;
+  }
+  

@@ -19,6 +19,9 @@
     "react-hook-form": "^7.43.9",
     "react-icons": "^4.8.0",
     "remask": "^1.2.2",
+    "sequelize": "^6.32.1",
+    "sqlite": "^4.2.1",
+    "sqlite3": "^5.1.6",
     "uuid": "^9.0.0"
   }
 }

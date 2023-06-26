@@ -30,7 +30,7 @@ const index = () => {
   return (
     <Pagina titulo='Cursos'>
 
-      <Button href='/cursos/form' variant="dark mb-3"  >Novo <BiPlusCircle /></Button>{' '}
+      <Button href='/cursos/form' variant="primary mb-3"  >Novo <BiPlusCircle /></Button>{' '}
 
       <Table striped bordered hover className='text-center'>
         <thead>
