@@ -6,6 +6,8 @@ import { BiPlusCircle } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import Link from 'next/link';
+import styles from "../../styles/index.module.css"
+
 const index = () => {
 
   const [professores, Setprofessores] = useState([])
@@ -28,13 +30,14 @@ const index = () => {
     }
   }
   return (
+    <div className={styles.cover}>
     <Pagina titulo='Professores'>
 
-      <Button href='/professores/form' variant="dark mb-3"  >Novo <BiPlusCircle /></Button>{' '}
+      <Button href='/professores/form' variant="primary mb-3"  >Novo <BiPlusCircle /></Button>{' '}
 
       <Table striped bordered hover className='text-center'>
         <thead>
-          <tr>
+          <tr className= 'text-white'>
             <th>Alterar/Excluir</th>
             <th>Nome</th>
             <th>CPF</th>
@@ -43,11 +46,7 @@ const index = () => {
             <th>E-mail</th>
             <th>Telefone</th>
             <th>CEP</th>
-            <th>Logradouro</th>
-            <th>Complemento</th>
-            <th>Número</th>
-            <th>Bairro</th>
-            
+          
           </tr>
         </thead>
         <tbody>
@@ -55,22 +54,19 @@ const index = () => {
 
           {professores.map((item, i) => (
             <tr key={i}>
-              <td>
-                <Link href={'/professores/' + i}>
-                <Button variant='light' className='ms-2'><AiFillEdit  className="primary" /></Button>
+              <td className= 'text-white'>
+                <Link href={'/professores/form ' + i}>
+                <Button variant='tranparent' className='ms-2'><AiFillEdit  className="text-primary" /></Button>
                 </Link>
-                <Button variant='light' className='ms-2' ><AiFillDelete onClick={() => excluir(i)} className="text-danger" /></Button></td>
-              <td>{item.nome}</td>
-              <td>{item.cpf}</td>
-              <td>{item.matricula}</td>
-              <td>{item.salario}</td>
-              <td>{item.email}</td>
-              <td>{item.telefone}</td>
-              <td>{item.cep}</td>
-              <td>{item.logradouro}</td>
-              <td>{item.complemento}</td>
-              <td>{item.numero}</td>
-              <td>{item.bairro}</td>
+                <Button variant='tranparent' className='ms-2' ><AiFillDelete onClick={() => excluir(i)} className="text-danger" /></Button></td>
+              <td className= 'text-white'>{item.nome}</td>
+              <td className= 'text-white'>{item.cpf}</td>
+              <td className= 'text-white'>{item.matricula}</td>
+              <td className= 'text-white'>{item.salario}</td>
+              <td className= 'text-white'>{item.email}</td>
+              <td className= 'text-white'>{item.telefone}</td>
+              <td className= 'text-white'>{item.cep}</td>
+       
             </tr>
           ))}
 
@@ -79,6 +75,7 @@ const index = () => {
 
       </Table>
     </Pagina>
+    </div>
   )
 }
 

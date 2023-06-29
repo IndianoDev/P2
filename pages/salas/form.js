@@ -1,5 +1,5 @@
 import Pagina from '@/components/Pagina'
-import cursoValidator from '@/validator/curso.validator';
+import salaValidator from "@/validators/salaValidator";
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React from 'react'
@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import { AiFillStepBackward } from "react-icons/ai";
 import { AiFillStepForward } from "react-icons/ai";
 import { mask } from 'remask';
+import styles from "../../styles/index.module.css"
 
 const form = () => {
 
@@ -28,38 +29,42 @@ const form = () => {
     setValue(name, mask(valor, mascara));
   }
   return (
+    <div className={styles.cover}>
     <Pagina titulo='Formulário'>
       <Form>
-        <Form.Group className="mb-3" controlId="nome">
+        <Form.Group className="mb-3 text-white" controlId="nome">
           <Form.Label>Nome:</Form.Label>
           <Form.Control 
           maxLength={80}
           type="text"
-          {...register('nome', cursoValidator.nome)}
+          placeholder="Insira o nome da sala:"
+          {...register('nome', salaValidator.nome)}
           isInvalid={errors.nome}  />
           {
              errors.nome &&
             <small className='mt-1 '>{errors.nome.message}</small>
           }
         </Form.Group>
-        <Form.Group className="mb-3" controlId="capacidade">
+        <Form.Group className="mb-3 text-white" controlId="capacidade">
           <Form.Label>Capacidade:</Form.Label>
           <Form.Control mask='99999999999'
           maxLength={11}
           type="text" 
-          {...register('capacidade', cursoValidator.capacidade)}
+          placeholder="Insira a capacidade da sala:"
+          {...register('capacidade', salaValidator.capacidade)}
           isInvalid={errors.capacidade}  />
           {
              errors.capacidade &&
             <small className='mt-1 '>{errors.capacidade.message}</small>
           }
         </Form.Group>
-        <Form.Group className="mb-3" controlId="tipo">
+        <Form.Group className="mb-3 text-white" controlId="tipo">
           <Form.Label>Tipo:</Form.Label>
           <Form.Control 
           maxLength={50}
           type="text"
-          {...register('tipo', cursoValidator.tipo)}
+          placeholder="Insira o tipo da sala:"
+          {...register('tipo', salaValidator.tipo)}
           isInvalid={errors.tipo}  />
           {
              errors.tipo &&
@@ -69,17 +74,18 @@ const form = () => {
 
         <div className='text-center'>
           <Link className=' btn btn-danger' href='/salas'>
-          <AiFillStepBackward className='me-2'/>
+        
           Voltar
           </Link>
           <Button variant='primary'  className='ms-2' onClick={handleSubmit(salvar)}>
-          <AiFillStepForward className='me-2'/>
+        
           Salvar
           </Button>
         </div>
 
       </Form>
     </Pagina>
+    </div>
   )
 }
 

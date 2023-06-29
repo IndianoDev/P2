@@ -6,6 +6,7 @@ import { BiPlusCircle } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import Link from 'next/link';
+import styles from "../../styles/index.module.css"
 const index = () => {
 
   const [salas, setSalas] = useState([])
@@ -28,13 +29,14 @@ const index = () => {
     }
   }
   return (
+    <div className={styles.cover}>
     <Pagina titulo='Salas'>
 
-      <Button href='/salas/form' variant="dark mb-3"  >Novo <BiPlusCircle /></Button>{' '}
+      <Button href='/salas/form' variant="primary mb-3"  >Novo <BiPlusCircle /></Button>{' '}
 
-      <Table striped bordered hover className='text-center'>
+      <Table  striped bordered hover className='text-center'>
         <thead>
-          <tr>
+          <tr className='text-white'>
             <th>Alterar/Excluir</th>
             <th>Nome</th>
             <th>Capacidade</th>
@@ -45,15 +47,15 @@ const index = () => {
 
 
           {salas.map((item, i) => (
-            <tr key={i}>
+            <tr key={i} className='text-white'>
               <td>
                 <Link href={'/salas/' + i}>
-                <Button variant='light' className='ms-2'><AiFillEdit  className="primary" /></Button>
+                <Button variant='tranparent' className='ms-2'><AiFillEdit  className="text-primary" /></Button>
                 </Link>
-                <Button variant='light' className='ms-2' ><AiFillDelete onClick={() => excluir(i)} className="text-danger" /></Button></td>
-              <td>{item.nome}</td>
-              <td>{item.capacidade}</td>
-              <td>{item.tipo}</td>
+                <Button variant='tranparent' className='ms-2' ><AiFillDelete onClick={() => excluir(i)} className="text-danger" /></Button></td>
+              <td className='text-white'>{item.nome}</td>
+              <td className='text-white'>{item.capacidade}</td>
+              <td className='text-white'>{item.tipo}</td>
             </tr>
           ))}
 
@@ -62,6 +64,7 @@ const index = () => {
 
       </Table>
     </Pagina>
+    </div>
   )
 }
 

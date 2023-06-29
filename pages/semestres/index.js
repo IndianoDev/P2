@@ -6,6 +6,8 @@ import { BiPlusCircle } from "react-icons/bi";
 import { AiFillDelete } from "react-icons/ai";
 import { AiFillEdit } from "react-icons/ai";
 import Link from 'next/link';
+import styles from "../../styles/index.module.css"
+
 const index = () => {
 
   const [semestres, Setsemestres] = useState([])
@@ -28,13 +30,14 @@ const index = () => {
     }
   }
   return (
+    <div className={styles.cover}>
     <Pagina titulo='Semestres'>
 
-      <Button href='/semestres/form' variant="dark mb-3"  >Novo <BiPlusCircle /></Button>{' '}
+      <Button href='/semestres/form' variant="primary mb-3"  >Novo <BiPlusCircle /></Button>{' '}
 
       <Table striped bordered hover className='text-center'>
         <thead>
-          <tr>
+          <tr className='text-white'>
             <th>Alterar/Excluir</th>
             <th>Nome</th>
             <th>Data inicio</th>
@@ -45,15 +48,15 @@ const index = () => {
 
 
           {semestres.map((item, i) => (
-            <tr key={i}>
-              <td>
+            <tr key={i} className='text-white'>
+              <td className='text-white'>
                 <Link href={'/semestres/' + i}>
-                <Button variant='light' className='ms-2'><AiFillEdit  className="primary" /></Button>
+                <Button variant='tranparent' className='ms-2'><AiFillEdit  className="text-primary" /></Button>
                 </Link>
-                <Button variant='light' className='ms-2' ><AiFillDelete onClick={() => excluir(i)} className="text-danger" /></Button></td>
-              <td>{item.nome}</td>
-              <td>{item.datainicio}</td>
-              <td>{item.datafim}</td>
+                <Button variant='tranparent' className='ms-2' ><AiFillDelete onClick={() => excluir(i)} className="text-danger" /></Button></td>
+              <td className='text-white'>{item.nome}</td>
+              <td className='text-white'>{item.datainicio}</td>
+              <td className='text-white'>{item.datafim}</td>
             </tr>
           ))}
 
@@ -62,6 +65,7 @@ const index = () => {
 
       </Table>
     </Pagina>
+    </div>
   )
 }
 
